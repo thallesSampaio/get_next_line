@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thasampa <thasampa@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/28 18:22:51 by thasampa          #+#    #+#             */
-/*   Updated: 2025/12/01 12:25:18 by thasampa         ###   ########.fr       */
+/*   Created: 2025/12/01 11:28:13 by thasampa          #+#    #+#             */
+/*   Updated: 2025/12/01 11:42:41 by thasampa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "get_next_line.h"
+#include <stdio.h>
+#include <string.h>
 
-# include <sys/types.h>
-# include <stdlib.h>
-# include <fcntl.h>
-
-size_t	ft_strlen(const char *src);
-char	*ft_strchr(const char *s, int c);
-char	*ft_strjoin(char const *s1, char const *s2);
-
-#endif
+int	main(void)
+{
+	printf("%s\n", ft_strchr("tds", 's'));
+	printf("%s\n", strchr("tds", 's'));
+	printf("%s\n", ft_strjoin("teste", "da silva"));
+}
