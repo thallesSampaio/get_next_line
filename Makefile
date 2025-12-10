@@ -2,7 +2,7 @@ CC = cc
 
 RM = rm -f
 AR = ar -rcs
-RUN = valgrind ./a.out
+RUN = valgrind --leak-check=full ./a.out
 
 CFLAGS = -Wall -Wextra -Werror
 

@@ -6,7 +6,7 @@
 /*   By: thasampa <thasampa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 18:22:36 by thasampa          #+#    #+#             */
-/*   Updated: 2025/12/01 18:17:35 by thasampa         ###   ########.fr       */
+/*   Updated: 2025/12/10 20:06:00 by thasampa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,37 @@ char	*ft_strdup(const char *s)
 	dest = (char *) malloc((ft_strlen(s) + 1) * sizeof(char));
 	if (dest == NULL)
 		return (NULL);
+	i = 0;
 	while (s[i] != 0)
 	{
 		dest[i] = s[i];
+		i++;
+	}
+	dest[i] = 0;
+	return (dest);
+}
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	size_t	i;
+	size_t	size;
+	char	*dest;
+
+	if (!s)
+		return (NULL);
+	if ((ft_strlen(s) - start) < len)
+		size = ft_strlen(s) - start;
+	else if (ft_strlen(s) <= start || len == 0)
+		size = 0;
+	else
+		size = len;
+	dest = (char *) malloc(size * sizeof(char) + 1);
+	if (dest == NULL)
+		return (NULL);
+	i = 0;
+	while (i < size)
+	{
+		dest[i] = s[start + i];
 		i++;
 	}
 	dest[i] = 0;
