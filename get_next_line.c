@@ -6,7 +6,7 @@
 /*   By: thasampa <thasampa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 18:22:09 by thasampa          #+#    #+#             */
-/*   Updated: 2025/12/10 20:05:24 by thasampa         ###   ########.fr       */
+/*   Updated: 2025/12/11 19:43:01 by thasampa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ char	*get_next_line(int fd)
 	char		*buffer;
 	char		*line;
 
-	if (rest == NULL)
-		rest = ft_strdup("");
 	buffer = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buffer)
 		return (NULL);
@@ -33,7 +31,12 @@ char	*get_next_line(int fd)
 	line = cut_first_line(line);
 	free(buffer);
 	buffer = NULL;
-	free(rest);
+	if (rest[0] == 0 || rest[1] == 0)
+	{
+		free(rest);
+		free(line);
+		return (NULL);
+	}
 	return (line);
 }
 
@@ -48,14 +51,18 @@ char	*fill_line(int fd, char *rest, char *buffer)
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read == -1)
 		{
-			free(buffer);
 			free(rest);
 			return (NULL);
 		}
-		tmp = rest;
+		else if (bytes_read == 0)
+			break ;
 		buffer[bytes_read] = 0;
+		if (rest == NULL)
+			rest = ft_strdup("");
+		tmp = rest;
 		rest = ft_strjoin(tmp, buffer);
 		free(tmp);
+		tmp = NULL;
 		if (ft_strchr(rest, '\n'))
 			break ;
 	}
@@ -78,5 +85,10 @@ static char	*get_rest(char *line)
 	char	*rest_line;
 
 	rest_line = ft_substr(line, (ft_strchr(line, '\n') - line) + 1, ft_strlen(line));
+	if (*rest_line == 0)
+	{
+		free(rest_line);
+		return (line);
+	}
 	return (rest_line);
 }
