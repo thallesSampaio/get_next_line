@@ -6,14 +6,14 @@
 /*   By: thasampa <thasampa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 18:22:51 by thasampa          #+#    #+#             */
-/*   Updated: 2025/12/10 20:00:38 by thasampa         ###   ########.fr       */
+/*   Updated: 2025/12/11 19:23:57 by thasampa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# define BUFFER_SIZE 1
+# define BUFFER_SIZE 5
 # include <sys/types.h>
 # include <stdlib.h>
 # include <unistd.h>
