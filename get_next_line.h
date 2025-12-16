@@ -6,7 +6,7 @@
 /*   By: thasampa <thasampa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 18:22:51 by thasampa          #+#    #+#             */
-/*   Updated: 2025/12/16 16:37:50 by thasampa         ###   ########.fr       */
+/*   Updated: 2025/12/16 18:40:50 by thasampa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1024
+# endif
+
+# ifndef MAX_FD
+#  define MAX_FD 1024
 # endif
 
 # include <sys/types.h>
