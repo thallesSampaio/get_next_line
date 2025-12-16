@@ -6,7 +6,7 @@
 /*   By: thasampa <thasampa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 18:22:09 by thasampa          #+#    #+#             */
-/*   Updated: 2025/12/11 19:43:01 by thasampa         ###   ########.fr       */
+/*   Updated: 2025/12/16 15:23:13 by thasampa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,12 @@ char	*get_next_line(int fd)
 	if (!buffer)
 		return (NULL);
 	line = fill_line(fd, rest, buffer);
-	rest = get_rest(line);
-	line = cut_first_line(line);
 	free(buffer);
 	buffer = NULL;
-	if (rest[0] == 0 || rest[1] == 0)
-	{
-		free(rest);
-		free(line);
+	if (!line)
 		return (NULL);
-	}
+	rest = get_rest(line);
+	line = cut_first_line(line);
 	return (line);
 }
 
@@ -88,7 +84,8 @@ static char	*get_rest(char *line)
 	if (*rest_line == 0)
 	{
 		free(rest_line);
-		return (line);
+		rest_line = NULL;
+		return (rest_line);
 	}
 	return (rest_line);
 }

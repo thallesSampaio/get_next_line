@@ -6,7 +6,7 @@
 /*   By: thasampa <thasampa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 11:28:13 by thasampa          #+#    #+#             */
-/*   Updated: 2025/12/11 19:05:00 by thasampa         ###   ########.fr       */
+/*   Updated: 2025/12/16 15:22:21 by thasampa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,4 @@ int main(void)
         printf("GNL: %s", line);
         free(line);
     }
-	free(line);
 }
