@@ -6,7 +6,7 @@
 /*   By: thasampa <thasampa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 18:22:09 by thasampa          #+#    #+#             */
-/*   Updated: 2025/12/16 16:23:27 by thasampa         ###   ########.fr       */
+/*   Updated: 2025/12/16 16:39:58 by thasampa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,9 @@ static char	*get_rest(char *line)
 {
 	char	*rest_line;
 
-	rest_line = ft_substr(line, (ft_strchr(line, '\n') - line) + 1, ft_strlen(line));
+	rest_line = ft_substr(line,
+			(ft_strchr(line, '\n') - line) + 1,
+			ft_strlen(line));
 	if (*rest_line == 0)
 	{
 		free(rest_line);

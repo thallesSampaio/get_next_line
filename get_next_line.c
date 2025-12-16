@@ -6,13 +6,12 @@
 /*   By: thasampa <thasampa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 18:22:09 by thasampa          #+#    #+#             */
-/*   Updated: 2025/12/16 15:55:23 by thasampa         ###   ########.fr       */
+/*   Updated: 2025/12/16 16:34:27 by thasampa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-//static char	*get_line(char *rest, char *stash, char *line, char *buffer);
 static char	*fill_line(int fd, char *rest, char *buffer);
 static char	*cut_first_line(char *line);
 static char	*get_rest(char *line);
@@ -80,7 +79,9 @@ static char	*get_rest(char *line)
 {
 	char	*rest_line;
 
-	rest_line = ft_substr(line, (ft_strchr(line, '\n') - line) + 1, ft_strlen(line));
+	rest_line = ft_substr(line,
+			(ft_strchr(line, '\n') - line) + 1,
+			ft_strlen(line));
 	if (*rest_line == 0)
 	{
 		free(rest_line);

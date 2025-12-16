@@ -6,19 +6,19 @@
 /*   By: thasampa <thasampa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 18:22:51 by thasampa          #+#    #+#             */
-/*   Updated: 2025/12/16 15:59:15 by thasampa         ###   ########.fr       */
+/*   Updated: 2025/12/16 16:39:08 by thasampa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
-#ifndef BUFFER_SIZE
-# define BUFFER_SIZE 1024
-#endif
-#ifndef MAX_FD
-# define MAX_FD 1024
-#endif
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1024
+# endif
+# ifndef MAX_FD
+#  define MAX_FD 1024
+# endif
 # include <sys/types.h>
 # include <stdlib.h>
 # include <unistd.h>
