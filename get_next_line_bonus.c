@@ -1,37 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thasampa <thasampa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 18:22:09 by thasampa          #+#    #+#             */
-/*   Updated: 2025/12/16 15:55:23 by thasampa         ###   ########.fr       */
+/*   Updated: 2025/12/16 16:23:27 by thasampa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
-//static char	*get_line(char *rest, char *stash, char *line, char *buffer);
 static char	*fill_line(int fd, char *rest, char *buffer);
 static char	*cut_first_line(char *line);
 static char	*get_rest(char *line);
 
 char	*get_next_line(int fd)
 {
-	static char	*rest;
+	static char	*rest[MAX_FD];
 	char		*buffer;
 	char		*line;
 
 	buffer = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+	{
+		free(rest[fd]);
+		free(buffer);
+		buffer = NULL;
+		rest[fd] = NULL;
+		return (NULL);
+	}
 	if (!buffer)
 		return (NULL);
-	line = fill_line(fd, rest, buffer);
+	line = fill_line(fd, rest[fd], buffer);
 	free(buffer);
 	buffer = NULL;
 	if (!line)
 		return (NULL);
-	rest = get_rest(line);
+	rest[fd] = get_rest(line);
 	line = cut_first_line(line);
 	return (line);
 }
